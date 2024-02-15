@@ -1,116 +1,105 @@
-/* Uygulamanın genel görünümünü belirle */
 body {
-  background-color: lightblue; /* Arka plan rengi */
-  font-family: Arial, sans-serif; /* Yazı tipi */
-  color: rgb(0, 0, 0); /* Yazı rengi */
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+  color: rgb(0, 0, 0);
 }
-/* Form bileşeninin görünümünü belirle */
+
 .form {
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 400px; /* Genişliği 400px yap */
-  padding: 20px; /* İçe 20px boşluk ver */
-  border: 2px solid rgb(255, 124, 124); /* Beyaz renkli 2px kalınlığında kenarlık ver */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
+  margin: 20px auto;
+  width: 400px;
+  padding: 20px;
+  border: 2px solid rgb(255, 124, 124);
+  border-radius: 10px;
 }
 
-/* Form içindeki etiketlerin görünümünü belirle */
 label {
-  display: block; /* Her etiketi ayrı bir satırda göster */
-  margin: 10px 0; /* Üstten ve alttan 10px boşluk bırak */
-  font-weight: bold; /* Yazı kalınlığını artır */
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
 }
 
-/* Form içindeki girdilerin görünümünü belirle */
 input, select {
-  display: block; /* Her girdiyi ayrı bir satırda göster */
-  width: 375px; /* Genişliği tam yap */
-  padding: 10px; /* İçe 10px boşluk ver */
-  border: 2px solid rgb(240, 135, 135); /* Beyaz renkli 2px kalınlığında kenarlık ver */
-  border-radius: 5px; /* Kenarları 5px yuvarlat */
+  display: block;
+  width: 375px;
+  padding: 10px;
+  border: 2px solid rgb(240, 135, 135);
+  border-radius: 5px;
 }
 
-/* Form içindeki butonun görünümünü belirle */
 button {
-  display: block; /* Butonu ayrı bir satırda göster */
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 200px; /* Genişliği 200px yap */
-  padding: 10px; /* İçe 10px boşluk ver */
-  border: none; /* Kenarlık verme */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
-  background-color: rgb(240, 145, 145); /* Arka plan rengini beyaz yap */
-  color: rgb(0, 0, 0); /* Yazı rengini açık mavi yap */
-  font-weight: bold; /* Yazı kalınlığını artır */
-  cursor: pointer; /* İmleci el şekline getir */
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(240, 145, 145);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* Soru bileşeninin görünümünü belirle */
 .question {
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 600px; /* Genişliği 600px yap */
-  padding: 20px; /* İçe 20px boşluk ver */
-  border: 2px solid rgb(255, 157, 157); /* Beyaz renkli 2px kalınlığında kenarlık ver */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
+  margin: 20px auto;
+  width: 600px;
+  padding: 20px;
+  border: 2px solid rgb(255, 157, 157);
+  border-radius: 10px;
 }
 
-/* Soru içindeki cevapların görünümünü belirle */
 .answers {
-  display: flex; /* Cevapları yan yana göster */
-  flex-wrap: wrap; /* Cevaplar satırı doldurduğunda alt satıra geç */
-  justify-content: space-between; /* Cevaplar arasında eşit boşluk bırak */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-/* Soru içindeki cevap butonlarının görünümünü belirle */
 .answers label {
-  width: 40%; /* Her cevap butonunun genişliğini %45 yap */
-  margin: 10px; /* Üstten ve alttan 10px boşluk bırak */
-  padding: 10px; /* İçe 10px boşluk ver */
-  border: 2px solid rgb(255, 171, 171); /* Beyaz renkli 2px kalınlığında kenarlık ver */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
-  background-color: rgb(255, 255, 255); /* Arka plan rengini beyaz yap */
-  color: rgb(0, 0, 0); /* Yazı rengini açık mavi yap */
-  font-weight: bold; /* Yazı kalınlığını artır */
-  cursor: pointer; /* İmleci el şekline getir */
+  width: 40%;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid rgb(255, 171, 171);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* Soru içindeki devam butonunun görünümünü belirle */
 .question button {
-  display: block; /* Butonu ayrı bir satırda göster */
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 200px; /* Genişliği 200px yap */
-  padding: 10px; /* İçe 10px boşluk ver */
-  border: none; /* Kenarlık verme */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
-  background-color: rgb(255, 163, 163); /* Arka plan rengini beyaz yap */
-  color: rgb(0, 0, 0); /* Yazı rengini açık mavi yap */
-  font-weight: bold; /* Yazı kalınlığını artır */
-  cursor: pointer; /* İmleci el şekline getir */
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 163, 163);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* Sonuç bileşeninin görünümünü belirle */
 .result {
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 600px; /* Genişliği 600px yap */
-  padding: 20px; /* İçe 20px boşluk ver */
-  border: 2px solid rgb(255, 173, 173); /* Beyaz renkli 2px kalınlığında kenarlık ver */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
+  margin: 20px auto;
+  width: 600px;
+  padding: 20px;
+  border: 2px solid rgb(255, 173, 173);
+  border-radius: 10px;
 }
 
-/* Sonuç içindeki listelerin görünümünü belirle */
 .result ul {
-  list-style: none; /* Liste işaretlerini kaldır */
-  padding: 0; /* Listeye boşluk verme */
+  list-style: none;
+  padding: 0;
 }
 
-/* Sonuç içindeki yeni quiz butonunun görünümünü belirle */
 .result button {
-  display: block; /* Butonu ayrı bir satırda göster */
-  margin: 20px auto; /* Ortala ve üstten 20px boşluk bırak */
-  width: 200px; /* Genişliği 200px yap */
-  padding: 10px; /* İçe 10px boşluk ver */
-  border: none; /* Kenarlık verme */
-  border-radius: 10px; /* Kenarları 10px yuvarlat */
-  background-color: rgb(255, 179, 179); /* Arka plan rengini beyaz yap */
-  color: rgb(0, 0, 0); /* Yazı rengini açık mavi yap */
-  font-weight: bold; /* Yazı kalınlığını artır */
-  cursor: pointer; /* İmleci el şekline getir */
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 179, 179);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
 }
