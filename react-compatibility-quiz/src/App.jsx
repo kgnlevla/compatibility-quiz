@@ -1,99 +1,221 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 const questions = [
   {
-    question: "En sevdiğin renk hangisi?",
-    answers: ["Kırmızı", "Mavi", "Yeşil", "Sarı"]
+    question:
+      'What kind of activity are you most likely to engage in on a weekend?',
+    answers: [
+      'reading a book, watching a movie, or binging Netflix',
+      'heading out to a play, concert or museum',
+      'hiking, biking, or generally being outdoors',
+      'Meet me at the club!',
+    ],
   },
   {
-    question: "En sevdiğin hayvan hangisi?",
-    answers: ["Kedi", "Köpek", "Kuş", "Balık"]
+    question: 'What kind of food are you most into?',
+    answers: [
+      'burger and fries',
+      'veggie/vegan',
+      'anything ethnic and/or spicy',
+      'the edible kind',
+    ],
   },
   {
-    question: "En sevdiğin müzik türü hangisi?",
-    answers: ["Pop", "Rock", "Jazz", "Klasik"]
+    question: 'Where do you get your news?',
+    answers: [
+      'the New York Times',
+      'various online sources',
+      'Fox',
+      'I try to avoid the news',
+    ],
   },
   {
-    question: "En sevdiğin spor hangisi?",
-    answers: ["Futbol", "Basketbol", "Tenis", "Yüzme"]
-  }
+    question: 'What role does religion play in your life?',
+    answers: [
+      'major—much of my behavior and outlook are shaped by it',
+      'basically limited to holidays',
+      'I’m spiritual, but not religious',
+      'none at all— I’m an atheist/agnostic',
+    ],
+  },
+  {
+    question: 'How many friends do you have outside of your race?',
+    answers: [
+      'lots – we’re a friggin’ Benetton ad',
+      'some but mostly I hang with people my own race',
+      'none but it’s not deliberate',
+      'none and I prefer it that way',
+    ],
+  },
+  {
+    question: 'Do you smoke?',
+    answers: [
+      'Like a chimney',
+      'Not cigarettes, buuuuut…',
+      'Nope, but I don’t mind if my date does',
+      'Nope, and I’d prefer if my date didn’t ruin breathing for me',
+    ],
+  },
+  {
+    question: 'How would you describe your tolerance for mess?',
+    answers: [
+      'zero',
+      'I’m generally neat, but will leave them dishes in the sink if I’m busy',
+      'I’ve been known to sleep on piles of unfolded laundry, and very little horizontal surface is visible in my place',
+      'I never really think about it because someone else keeps my space clean',
+    ],
+  },
+  {
+    question: 'Stance on kids?',
+    answers: [
+      'Love ‘em! Want ‘em!(/Got ‘em!)',
+      'I like hanging with them... as long as I can give them back to their parents',
+      'Meh. Tolerable',
+      'Fuuuuuck that noise',
+    ],
+  },
 ];
 
 const matches = [
   {
-    name: "Ali",
+    name: 'Ali',
+    location: 'Istanbul',
     age: 25,
-    gender: "Erkek",
+    gender: 'Male',
+    seeking: 'Female',
     score: 0,
-    answers: ["Mavi", "Köpek", "Rock", "Futbol"]
+    answers: [
+      'heading out to a play, concert or museum',
+      'anything ethnic and/or spicy',
+      'the New York Times',
+      'I’m spiritual, but not religious',
+      'lots – we’re a friggin’ Benetton ad',
+      'Not cigarettes, buuuuut…',
+      'I’m generally neat, but will leave them dishes in the sink if I’m busy',
+      'Love ‘em! Want ‘em!(/Got ‘em!)',
+    ],
   },
   {
-    name: "Ayşe",
+    name: 'Ayşe',
+    location: 'Ankara',
     age: 23,
-    gender: "Kadın",
+    gender: 'Female',
+    seeking: 'Male',
     score: 0,
-    answers: ["Yeşil", "Kedi", "Jazz", "Tenis"]
+    answers: [
+      'reading a book, watching a movie, or binging Netflix',
+      'veggie/vegan',
+      'various online sources',
+      'basically limited to holidays',
+      'some but mostly I hang with people my own race',
+      'Nope, and I’d prefer if my date didn’t ruin breathing for me',
+      'zero',
+      'I like hanging with them... as long as I can give them back to their parents',
+    ],
   },
   {
-    name: "Burak",
+    name: 'Burak',
+    location: 'Izmir',
     age: 27,
-    gender: "Erkek",
+    gender: 'Male',
+    seeking: 'Female',
     score: 0,
-    answers: ["Kırmızı", "Balık", "Klasik", "Yüzme"]
+    answers: [
+      'hiking, biking, or generally being outdoors',
+      'burger and fries',
+      'Fox',
+      'major—much of my behavior and outlook are shaped by it',
+      'none but it’s not deliberate',
+      'Like a chimney',
+      'I’ve been known to sleep on piles of unfolded laundry, and very little horizontal surface is visible in my place',
+      'Meh. Tolerable',
+    ],
   },
   {
-    name: "Ceren",
+    name: 'Ceren',
+    location: 'Bursa',
     age: 24,
-    gender: "Kadın",
+    gender: 'Female',
+    seeking: 'Male',
     score: 0,
-    answers: ["Sarı", "Kuş", "Pop", "Basketbol"]
-  }
+    answers: [
+      'Meet me at the club!',
+      'the edible kind',
+      'I try to avoid the news',
+      'none at all— I’m an atheist/agnostic',
+      'none and I prefer it that way',
+      'Nope, but I don’t mind if my date does',
+      'I never really think about it because someone else keeps my space clean',
+      'Fuuuuuck that noise',
+    ],
+  },
 ];
 
 function Form({ onSubmit }) {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [seeking, setSeeking] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ name, age, gender });
+    onSubmit({ name, location, age, gender, seeking });
   };
 
   return (
-    <div className="form">
+    <div className='form'>
       <h1>Compatibility Quiz</h1>
-      <p>Lütfen aşağıdaki bilgileri doldurunuz.</p>
+      <p>Please fill in the information below.</p>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Adınız:</label>
+        <label htmlFor='name'>Name:</label>
         <input
-          id="name"
-          type="text"
+          id='name'
+          type='text'
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
           required
         />
-        <label htmlFor="age">Yaşınız:</label>
+        <label htmlFor='location'>Location:</label>
         <input
-          id="age"
-          type="number"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
+          id='location'
+          type='text'
+          value={location}
+          onChange={e => setLocation(e.target.value)}
           required
         />
-        <label htmlFor="gender">Cinsiyetiniz:</label>
+        <label htmlFor='age'>Age:</label>
+        <input
+          id='age'
+          type='number'
+          value={age}
+          onChange={e => setAge(e.target.value)}
+          required
+        />
+        <label htmlFor='gender'>Gender:</label>
         <select
-          id="gender"
+          id='gender'
           value={gender}
-          onChange={(e) => setGender(e.target.value)}
+          onChange={e => setGender(e.target.value)}
           required
         >
-          <option value="">Seçiniz</option>
-          <option value="Erkek">Erkek</option>
-          <option value="Kadın">Kadın</option>
+          <option value=''>Choose</option>
+          <option value='Erkek'>Male</option>
+          <option value='Kadın'>Female</option>
         </select>
-        <button type="submit">Başla</button>
+        <label htmlFor='seeking'>The gender you are looking for:</label>
+        <select
+          id='seeking'
+          value={seeking}
+          onChange={e => setSeeking(e.target.value)}
+          required
+        >
+          <option value=''>Choose</option>
+          <option value='Erkek'>Male</option>
+          <option value='Kadın'>Female</option>
+        </select>
+        <button type='submit'>Start</button>
       </form>
     </div>
   );
@@ -101,26 +223,23 @@ function Form({ onSubmit }) {
 
 function Question({ question, answer, onChange, onNext }) {
   return (
-    <div className="question">
-      <h1>{question.question}</h1>
-      <p>Lütfen aşağıdaki seçeneklerden birini seçiniz.</p>
-      <div className="answers">
-        {question.answers.map((a) => (
-          <label key={a}>
+    <div className='question'>
+      <h2>{question.question}</h2>
+      <div className='answers'>
+        {question.answers.map((a, i) => (
+          <label key={i}>
             <input
-              type="radio"
-              name="answer"
+              type='radio'
+              name='answer'
               value={a}
               checked={answer === a}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={onChange}
             />
             {a}
           </label>
         ))}
       </div>
-      <button onClick={onNext} disabled={!answer}>
-        Devam
-      </button>
+      <button onClick={onNext}>Next</button>
     </div>
   );
 }
@@ -145,19 +264,20 @@ function Result({ user, matches, onReset }) {
   const bestMatch = matches[0];
 
   return (
-    <div className="result">
-      <h1>Sonuçlar</h1>
-      <p>Merhaba {user.name}, uyumluluk quizini tamamladın. Puanın: {bestMatch.score}/{questions.length}</p>
-      <p>Senin için en uyumlu kişi: {bestMatch.name}, {bestMatch.age}, {bestMatch.gender}</p>
-      <p>Diğer potansiyel eşleşmelerin:</p>
+    <div className='result'>
+      <h1>Result</h1>
+      <p>Hello {user.name}, thank you for completing our compatibility quiz.</p>
+      <p>
+        Your compatibility score: {bestMatch.score}/{questions.length}
+      </p>
+      <p>Your highest compatibility match:</p>
       <ul>
-        {matches.slice(1).map((match) => (
-          <li key={match.name}>
-            {match.name}, {match.age}, {match.gender}, Puan: {match.score}
-          </li>
-        ))}
+        <li>
+          {bestMatch.name}, {bestMatch.location}, {bestMatch.age},{' '}
+          {bestMatch.gender} ({bestMatch.score}/{questions.length} compatible)
+        </li>
       </ul>
-      <button onClick={onReset}>Yeni Quiz</button>
+      <button onClick={onReset}>New Quiz</button>
     </div>
   );
 }
@@ -165,47 +285,47 @@ function Result({ user, matches, onReset }) {
 function App() {
   const [user, setUser] = useState(null);
   const [index, setIndex] = useState(0);
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState('');
 
-  const handleFormSubmit = (data) => {
+  const handleFormSubmit = data => {
     setUser({ ...data, answers: [] });
   };
 
-  const handleQuestionChange = (value) => {
-    setAnswer(value);
+  const handleAnswerChange = e => {
+    setAnswer(e.target.value);
   };
 
-  const handleQuestionNext = () => {
+  const handleNextQuestion = () => {
     setUser({ ...user, answers: [...user.answers, answer] });
     setIndex(index + 1);
-    setAnswer("");
+    setAnswer('');
   };
 
-  const handleQuizReset = () => {
+  const handleResetQuiz = () => {
     setUser(null);
     setIndex(0);
-    setAnswer("");
+    setAnswer('');
   };
 
   return (
-    <div className="app">
+    <div className='app'>
       {!user && <Form onSubmit={handleFormSubmit} />}
       {user && index < questions.length && (
         <Question
           question={questions[index]}
           answer={answer}
-          onChange={handleQuestionChange}
-          onNext={handleQuestionNext}
+          onChange={handleAnswerChange}
+          onNext={handleNextQuestion}
         />
       )}
       {user && index === questions.length && (
-        <Result user={user} matches={matches} onReset={handleQuizReset} />
+        <Result user={user} matches={matches} onReset={handleResetQuiz} />
       )}
     </div>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
